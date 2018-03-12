@@ -1,0 +1,27 @@
+{
+    "name": "ezsystems/ezplatform-standard-design",
+    "description": "eZ Platform Standard Design Bundle",
+    "type": "ezplatform-bundle",
+    "license": "GPL-2.0-only",
+    "require": {
+        "symfony/http-kernel": "^3.4",
+        "ezsystems/ezplatform-design-engine": "^1.1",
+        "ezsystems/ezpublish-kernel": "^7.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "EzSystems\\EzPlatformStandardDesignBundle\\": "src/bundle"
+        }
+    },
+    "scripts": {
+        "fix-cs": "@php ./vendor/bin/php-cs-fixer fix -v --show-progress=estimating"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    }
+}
