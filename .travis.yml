@@ -1,0 +1,45 @@
+language: php
+
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+
+matrix:
+    include:
+        - php: 7.1
+          env: PHPUNIT_CONFIG='phpunit.xml'
+        - php: 7.1
+          env: BEHAT_OPTS="--profile=core --suite=web --tags=~@broken --no-interaction" SYMFONY_ENV=behat SYMFONY_DEBUG=1
+        - php: 7.1
+          env: CHECK_CS=true
+
+env:
+  global:
+    # For acceptance tests
+    - COMPOSE_FILE="doc/docker/base-dev.yml:doc/docker/selenium.yml"
+    - EZPLATFORM_REPO="https://github.com/ezsystems/ezplatform.git"
+
+# test only master and stable branches (+ Pull requests)
+branches:
+    only:
+        - master
+        - /^\d+\.\d+$/
+
+install:
+    # Disable XDebug for performance
+    - phpenv config-rm xdebug.ini
+    # Avoid memory issues on composer install
+    - echo "memory_limit=-1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+    # Install packages if needed
+    - if [ "${PHPUNIT_CONFIG}" != '' -o "${CHECK_CS}" = "true" ]; then travis_retry composer install --prefer-dist --no-interaction --no-suggest ; fi
+    # Prepare Behat environment if needed
+    - if [ "${BEHAT_OPTS}" != "" ]; then ./.travis/prepare_ezplatform.sh ; fi
+
+script:
+    - if [ "${PHPUNIT_CONFIG}" != '' ]; then ./vendor/bin/phpunit -c "${PHPUNIT_CONFIG}"; fi
+    - if [ "${BEHAT_OPTS}" != "" ]; then cd "$HOME/build/ezplatform"; docker-compose exec --user www-data app sh -c "./bin/behat $BEHAT_OPTS" ; fi
+    - if [ "${CHECK_CS}" = "true" ]; then ./vendor/bin/php-cs-fixer fix -v --dry-run --diff --show-progress=estimating; fi
+
+# reduce depth (history) of git checkout
+git:
+  depth: 30
