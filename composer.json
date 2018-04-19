@@ -9,11 +9,18 @@
         "ezsystems/ezpublish-kernel": "^7.0"
     },
     "require-dev": {
+        "matthiasnoback/symfony-dependency-injection-test": "^3.0",
+        "phpunit/phpunit": "^7.1",
         "friendsofphp/php-cs-fixer": "^2.10"
     },
     "autoload": {
         "psr-4": {
             "EzSystems\\EzPlatformStandardDesignBundle\\": "src/bundle"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "EzSystems\\Tests\\EzPlatformStandardDesignBundle\\": "tests/bundle"
         }
     },
     "scripts": {
