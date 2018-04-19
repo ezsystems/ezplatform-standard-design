@@ -36,6 +36,7 @@ return PhpCsFixer\Config::create()
             ->in(
                 [
                     __DIR__ . '/src',
+                    __DIR__ . '/tests',
                 ]
             )
             ->files()->name('*.php')
