@@ -6,7 +6,7 @@ Standard Design is the default Design used by the templates shipped with eZ Plat
 
 ## Installation
 
-1. In your eZ Platform 2.1+ project, require this package with Composer.
+1. In your eZ Platform 2.2+ project, require this package with Composer.
 
     ```bash
         composer require ezsystems/ezplatform-standard-design

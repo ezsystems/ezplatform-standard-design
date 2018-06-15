@@ -1,0 +1,17 @@
+parameters:
+    ezpublish.content_view.viewbase_layout: '@@ezdesign/viewbase_layout.html.twig'
+
+    ezplatform.default_view_templates.content.full: '@@ezdesign/default/content/full.html.twig'
+    ezplatform.default_view_templates.content.line: '@@ezdesign/default/content/line.html.twig'
+    ezplatform.default_view_templates.content.text_linked: '@@ezdesign/default/content/text_linked.html.twig'
+    ezplatform.default_view_templates.content.embed: '@@ezdesign/default/content/embed.html.twig'
+    ezplatform.default_view_templates.content.embed_image: '@@ezdesign/default/content/embed_image.html.twig'
+    ezplatform.default_view_templates.block: '@@ezdesign/default/block/block.html.twig'
+
+    ezsettings.default.pagelayout: '@@ezdesign/pagelayout.html.twig'
+
+    ezsettings.default.field_templates:
+        - { template: '@@ezdesign/content_fields.html.twig', priority: 0 }
+
+    ezsettings.default.fielddefinition_settings_templates:
+        - { template: '@@ezdesign/fielddefinition_settings.html.twig', priority: 0 }
