@@ -16,6 +16,8 @@ use Symfony\Component\Yaml\Yaml;
 
 class EzPlatformStandardDesignExtension extends Extension implements PrependExtensionInterface
 {
+    const OVERRIDE_KERNEL_TEMPLATES_PARAM_NAME = 'ez_platform_standard_design.override_kernel_templates';
+
     /**
      * Load Bundle Configuration.
      *
@@ -26,7 +28,14 @@ class EzPlatformStandardDesignExtension extends Extension implements PrependExte
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-        // Nothing to load so far
+        $configuration = new Configuration();
+
+        $config = $this->processConfiguration($configuration, $configs);
+
+        $container->setParameter(
+            static::OVERRIDE_KERNEL_TEMPLATES_PARAM_NAME,
+            $config['override_kernel_templates']
+        );
     }
 
     /**

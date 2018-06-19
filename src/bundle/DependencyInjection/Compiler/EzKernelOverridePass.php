@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace EzSystems\EzPlatformStandardDesignBundle\DependencyInjection\Compiler;
 
+use EzSystems\EzPlatformStandardDesignBundle\DependencyInjection\EzPlatformStandardDesignExtension;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -27,11 +28,16 @@ class EzKernelOverridePass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        $loader = new YamlFileLoader(
-            $container,
-            new FileLocator(__DIR__ . '/../../Resources/config')
+        $overrideTemplates = $container->getParameter(
+            EzPlatformStandardDesignExtension::OVERRIDE_KERNEL_TEMPLATES_PARAM_NAME
         );
-        $loader->load('override/ezpublish.yaml');
+        if ($overrideTemplates) {
+            $loader = new YamlFileLoader(
+                $container,
+                new FileLocator(__DIR__ . '/../../Resources/config')
+            );
+            $loader->load('override/ezpublish.yaml');
+        }
 
         $this->setStandardThemeDirectories($container);
     }
