@@ -8,10 +8,6 @@ parameters:
     ezplatform.default_view_templates.content.embed_image: '@@ezdesign/default/content/embed_image.html.twig'
     ezplatform.default_view_templates.block: '@@ezdesign/default/block/block.html.twig'
 
-    ezsettings.default.pagelayout: '@@ezdesign/pagelayout.html.twig'
-
-    ezsettings.default.field_templates:
-        - { template: '@@ezdesign/content_fields.html.twig', priority: 0 }
-
-    ezsettings.default.fielddefinition_settings_templates:
-        - { template: '@@ezdesign/fielddefinition_settings.html.twig', priority: 0 }
+    ezplatform.default_templates.pagelayout: '@@ezdesign/pagelayout.html.twig'
+    ezplatform.default_templates.field_templates: '@@ezdesign/content_fields.html.twig'
+    ezplatform.default_templates.fielddefinition_settings_templates: '@@ezdesign/fielddefinition_settings.html.twig'
