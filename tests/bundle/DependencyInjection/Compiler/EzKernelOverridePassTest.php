@@ -35,6 +35,8 @@ class EzKernelOverridePassTest extends AbstractCompilerPassTestCase
      */
     protected function registerCompilerPass(ContainerBuilder $container)
     {
+        $container->setParameter('ez_platform_standard_design.override_kernel_templates', true);
+
         $container->addCompilerPass(new EzKernelOverridePass());
     }
 
