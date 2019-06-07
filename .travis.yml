@@ -6,11 +6,11 @@ cache:
 
 matrix:
     include:
-        - php: 7.1
+        - php: 7.3
           env: PHPUNIT_CONFIG='phpunit.xml'
-        - php: 7.1
+        - php: 7.3
           env: BEHAT_OPTS="--profile=core --suite=web --tags=~@broken --no-interaction" SYMFONY_ENV=behat SYMFONY_DEBUG=1
-        - php: 7.1
+        - php: 7.3
           env: CHECK_CS=true
 
 env:
