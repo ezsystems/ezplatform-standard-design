@@ -33,7 +33,7 @@ class EzKernelOverridePassTest extends AbstractCompilerPassTestCase
      *
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
      */
-    protected function registerCompilerPass(ContainerBuilder $container)
+    protected function registerCompilerPass(ContainerBuilder $container): void
     {
         $container->setParameter('ez_platform_standard_design.override_kernel_templates', true);
 
