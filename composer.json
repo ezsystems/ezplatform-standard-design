@@ -6,14 +6,14 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "symfony/http-kernel": "^3.4",
+        "symfony/http-kernel": "^4.3",
         "ezsystems/ezplatform-design-engine": "^3.0@dev",
-        "ezsystems/ezpublish-kernel": "^8.0"
+        "ezsystems/ezpublish-kernel": "^8.0@dev"
     },
     "require-dev": {
-        "matthiasnoback/symfony-dependency-injection-test": "^3.0",
-        "phpunit/phpunit": "^7.1",
-        "friendsofphp/php-cs-fixer": "^2.10"
+        "matthiasnoback/symfony-dependency-injection-test": "^4.0",
+        "phpunit/phpunit": "^8.1",
+        "friendsofphp/php-cs-fixer": "^2.15"
     },
     "autoload": {
         "psr-4": {
