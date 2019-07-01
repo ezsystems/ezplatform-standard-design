@@ -7,8 +7,8 @@
     "prefer-stable": true,
     "require": {
         "symfony/http-kernel": "^4.3",
-        "ezsystems/ezplatform-design-engine": "^3.0@dev",
-        "ezsystems/ezpublish-kernel": "^8.0@dev"
+        "ezsystems/ezplatform-design-engine": "^3.0@beta",
+        "ezsystems/ezpublish-kernel": "^8.0@beta"
     },
     "require-dev": {
         "matthiasnoback/symfony-dependency-injection-test": "^4.0",
