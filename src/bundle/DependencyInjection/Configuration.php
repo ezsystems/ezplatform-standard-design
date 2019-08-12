@@ -20,9 +20,9 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('ez_platform_standard_design');
+        $treeBuilder = new TreeBuilder('ez_platform_standard_design');
 
+        $rootNode = $treeBuilder->getRootNode();
         $rootNode
             ->children()
                 ->booleanNode('override_kernel_templates')
