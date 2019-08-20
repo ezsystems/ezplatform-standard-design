@@ -4,6 +4,7 @@
     "type": "ezplatform-bundle",
     "license": "GPL-2.0-only",
     "require": {
+        "ezsystems/doctrine-dbal-schema": "^1.0@dev",
         "symfony/http-kernel": "^4.3",
         "ezsystems/ezplatform-design-engine": "^3.0@dev",
         "ezsystems/ezpublish-kernel": "^8.0@dev"
