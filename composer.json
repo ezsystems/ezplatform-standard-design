@@ -5,9 +5,6 @@
     "license": "GPL-2.0-only",
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "repositories": [
-        {"type": "vcs", "url": "https://github.com/ezsystems/Routing.git"}
-    ],
     "require": {
         "symfony/http-kernel": "^5.0",
         "ezsystems/ezplatform-design-engine": "dev-symfony5 as 3.0.x-dev",
