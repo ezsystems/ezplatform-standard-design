@@ -6,8 +6,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "repositories": [
-        {"type": "vcs", "url": "https://github.com/webhdx/JMSTranslationBundle.git"},
-        {"type": "vcs", "url": "https://github.com/webhdx/Routing.git"}
+        {"type": "vcs", "url": "https://github.com/ezsystems/Routing.git"}
     ],
     "require": {
         "symfony/http-kernel": "^5.0",
