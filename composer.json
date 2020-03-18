@@ -5,8 +5,8 @@
     "license": "GPL-2.0-only",
     "require": {
         "symfony/http-kernel": "^5.0",
-        "ezsystems/ezplatform-design-engine": "^3.0@dev",
-        "ezsystems/ezpublish-kernel": "^8.0@dev"
+        "ezsystems/ezplatform-design-engine": "^3.0",
+        "ezsystems/ezpublish-kernel": "^8.0"
     },
     "require-dev": {
         "matthiasnoback/symfony-dependency-injection-test": "^4.1",
