@@ -15,12 +15,12 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 /**
- * Compiler pass implemented to override ezpublish-kernel default template paths defined in Container.
+ * Compiler pass implemented to override eZ Platform Kernel default template paths defined in Container.
  */
 class EzKernelOverridePass implements CompilerPassInterface
 {
     /**
-     * Load Standard Design configuration which overrides ezpublish-kernel setup.
+     * Load Standard Design configuration which overrides eZ Platform Kernel setup.
      *
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
      *
