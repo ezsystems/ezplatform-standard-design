@@ -11,7 +11,8 @@
     "require-dev": {
         "matthiasnoback/symfony-dependency-injection-test": "^4.1",
         "phpunit/phpunit": "^8.1",
-        "friendsofphp/php-cs-fixer": "^2.15"
+        "ezsystems/ezplatform-code-style": "^0.1.0",
+        "friendsofphp/php-cs-fixer": "^2.16.1"
     },
     "autoload": {
         "psr-4": {
