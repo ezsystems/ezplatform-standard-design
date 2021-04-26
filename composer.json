@@ -5,11 +5,11 @@
     "license": "GPL-2.0-only",
     "require": {
         "symfony/http-kernel": "^5.0",
-        "ezsystems/ezplatform-design-engine": "^3.0@dev",
-        "ezsystems/ezplatform-kernel": "^1.0@dev"
+        "ezsystems/ezplatform-design-engine": "^4.0@dev",
+        "ezsystems/ezplatform-kernel": "^2.0@dev"
     },
     "require-dev": {
-        "ezsystems/doctrine-dbal-schema": "^1.0@dev",
+        "ezsystems/doctrine-dbal-schema": "^2.0@dev",
         "matthiasnoback/symfony-dependency-injection-test": "^4.1",
         "phpunit/phpunit": "^8.1",
         "ezsystems/ezplatform-code-style": "^0.1.0",
@@ -29,9 +29,7 @@
         "fix-cs": "@php ./vendor/bin/php-cs-fixer fix -v --show-progress=estimating"
     },
     "extra": {
-        "_ezplatform_branch_for_behat_tests": "master",
         "branch-alias": {
-            "dev-tmp_ci_branch": "0.4.x-dev",
             "dev-master": "0.4.x-dev"
         }
     }
