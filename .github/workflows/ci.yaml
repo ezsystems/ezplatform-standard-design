@@ -21,7 +21,6 @@ jobs:
           - '7.3'
           - '7.4'
         composer_options: [ "" ]
-        experimental: [false]
 
     steps:
       - uses: actions/checkout@v2
