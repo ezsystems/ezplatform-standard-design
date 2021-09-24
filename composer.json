@@ -13,7 +13,8 @@
         "matthiasnoback/symfony-dependency-injection-test": "^4.1",
         "phpunit/phpunit": "^8.1",
         "ezsystems/ezplatform-code-style": "^0.1.0",
-        "friendsofphp/php-cs-fixer": "^2.16.1"
+        "friendsofphp/php-cs-fixer": "^2.16.1",
+        "ibexa/ci-scripts": "^0.1@dev"
     },
     "autoload": {
         "psr-4": {
@@ -31,9 +32,7 @@
         "test": "phpunit -c phpunit.xml"
     },
     "extra": {
-        "_ezplatform_branch_for_behat_tests": "3.0",
         "branch-alias": {
-            "dev-tmp_ci_branch": "0.3.x-dev",
             "dev-master": "0.3.x-dev"
         }
     }

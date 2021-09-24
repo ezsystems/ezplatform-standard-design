@@ -7,13 +7,13 @@ cache:
 matrix:
     include:
         - php: 7.1
-          env: BEHAT_OPTS="--profile=core --suite=web --tags=~@broken --no-interaction" APP_ENV=behat APP_DEBUG=1
-
-env:
-  global:
-    # For acceptance tests
-    - COMPOSE_FILE="doc/docker/base-dev.yml:doc/docker/selenium.yml"
-    - EZPLATFORM_REPO="https://github.com/ezsystems/ezplatform.git"
+          env: 
+            - BEHAT_OPTS="--profile=core --suite=web --tags=~@broken --no-interaction" 
+            - APP_ENV=behat 
+            - APP_DEBUG=1
+            - COMPOSE_FILE="doc/docker/base-dev.yml:doc/docker/selenium.yml"
+            - PROJECT_EDITION=oss
+            - PROJECT_VERSION=^3.3.x-dev
 
 # test only master and stable branches (+ Pull requests)
 branches:
@@ -26,11 +26,12 @@ install:
     - phpenv config-rm xdebug.ini
     # Avoid memory issues on composer install
     - echo "memory_limit=-1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+    - travis_retry composer install
     # Prepare Behat environment if needed
-    - ./.travis/prepare_ezplatform.sh
+    - ./vendor/bin/prepare_project_edition.sh ${PROJECT_EDITION} ${PROJECT_VERSION} ${COMPOSE_FILE}
 
 script:
-    - cd "$HOME/build/ezplatform"; docker-compose exec --user www-data app sh -c "./bin/behat $BEHAT_OPTS"
+    - cd "$HOME/build/project"; docker-compose exec --user www-data app sh -c "vendor/bin/behat $BEHAT_OPTS"
 
 # reduce depth (history) of git checkout
 git:
