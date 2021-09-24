@@ -6,18 +6,14 @@ cache:
 
 matrix:
     include:
-        - php: 7.3
-          env: PHPUNIT_CONFIG='phpunit.xml'
-        - php: 7.3
-          env: BEHAT_OPTS="--profile=core --suite=web --tags=~@broken --no-interaction" APP_ENV=behat APP_DEBUG=1
-        - php: 7.3
-          env: CHECK_CS=true
-
-env:
-  global:
-    # For acceptance tests
-    - COMPOSE_FILE="doc/docker/base-dev.yml:doc/docker/selenium.yml"
-    - EZPLATFORM_REPO="https://github.com/ezsystems/ezplatform.git"
+        - php: 7.1
+          env: 
+            - BEHAT_OPTS="--profile=core --suite=web --tags=~@broken --no-interaction" 
+            - APP_ENV=behat 
+            - APP_DEBUG=1
+            - COMPOSE_FILE="doc/docker/base-dev.yml:doc/docker/selenium.yml"
+            - PROJECT_EDITION=oss
+            - PROJECT_VERSION=^3.3.x-dev
 
 # test only master and stable branches (+ Pull requests)
 branches:
@@ -30,15 +26,12 @@ install:
     - phpenv config-rm xdebug.ini
     # Avoid memory issues on composer install
     - echo "memory_limit=-1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
-    # Install packages if needed
-    - if [ "${PHPUNIT_CONFIG}" != '' -o "${CHECK_CS}" = "true" ]; then travis_retry composer install --prefer-dist --no-interaction --no-suggest ; fi
+    - travis_retry composer install
     # Prepare Behat environment if needed
-    - if [ "${BEHAT_OPTS}" != "" ]; then ./.travis/prepare_ezplatform.sh ; fi
+    - ./vendor/bin/prepare_project_edition.sh ${PROJECT_EDITION} ${PROJECT_VERSION} ${COMPOSE_FILE}
 
 script:
-    - if [ "${PHPUNIT_CONFIG}" != '' ]; then ./vendor/bin/phpunit -c "${PHPUNIT_CONFIG}"; fi
-    - if [ "${BEHAT_OPTS}" != "" ]; then cd "$HOME/build/ezplatform"; docker-compose exec --user www-data app sh -c "./bin/behat $BEHAT_OPTS" ; fi
-    - if [ "${CHECK_CS}" = "true" ]; then ./vendor/bin/php-cs-fixer fix -v --dry-run --diff --show-progress=estimating; fi
+    - cd "$HOME/build/project"; docker-compose exec --user www-data app sh -c "vendor/bin/behat $BEHAT_OPTS"
 
 # reduce depth (history) of git checkout
 git:
