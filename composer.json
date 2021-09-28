@@ -5,16 +5,16 @@
     "license": "GPL-2.0-only",
     "require": {
         "symfony/http-kernel": "^5.0",
-        "ezsystems/ezplatform-design-engine": "~3.0.0@dev",
-        "ezsystems/ezplatform-kernel": "^1.0@dev"
+        "ezsystems/ezplatform-design-engine": "~3.0.0",
+        "ezsystems/ezplatform-kernel": "^1.0"
     },
     "require-dev": {
-        "ezsystems/doctrine-dbal-schema": "^1.0@dev",
+        "ezsystems/doctrine-dbal-schema": "^1.0",
         "matthiasnoback/symfony-dependency-injection-test": "^4.1",
         "phpunit/phpunit": "^8.1",
         "ezsystems/ezplatform-code-style": "^0.1.0",
         "friendsofphp/php-cs-fixer": "^2.16.1",
-        "ibexa/ci-scripts": "^0.1@dev"
+        "ibexa/ci-scripts": "^0.1"
     },
     "autoload": {
         "psr-4": {
