@@ -30,7 +30,7 @@ install:
     - ./.travis/prepare_ezplatform.sh
 
 script:
-    - cd "$HOME/build/ezplatform"; docker-compose exec --user www-data app sh -c "./bin/behat $BEHAT_OPTS"
+    - cd "$HOME/build/ezplatform"; docker-compose --env-file=.env exec --user www-data app sh -c "./bin/behat $BEHAT_OPTS"
 
 # reduce depth (history) of git checkout
 git:
