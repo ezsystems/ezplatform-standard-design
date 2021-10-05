@@ -11,27 +11,29 @@ matrix:
 
 env:
   global:
-    # For acceptance tests
+    #A For acceptance tests
     - COMPOSE_FILE="doc/docker/base-dev.yml:doc/docker/selenium.yml"
     - EZPLATFORM_REPO="https://github.com/ezsystems/ezplatform.git"
 
-# test only master and stable branches (+ Pull requests)
+#A test only master and stable branches (+ Pull requests)
 branches:
     only:
         - master
         - /^\d+\.\d+$/
 
 install:
-    # Disable XDebug for performance
+    #A Disable XDebug for performance
     - phpenv config-rm xdebug.ini
-    # Avoid memory issues on composer install
+    #A Disable expired certificate
+    - sed -i '/mozilla\/DST_Root_CA_X3.crt/ s/./!&/' /etc/ca-certificates.conf \ && update-ca-certificates --verbose
+    #A Avoid memory issues on composer install
     - echo "memory_limit=-1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
-    # Prepare Behat environment if needed
+    #A Prepare Behat environment if needed
     - ./.travis/prepare_ezplatform.sh
 
 script:
-    - cd "$HOME/build/ezplatform"; docker-compose --env-file=.env exec --user www-data app sh -c "./bin/behat $BEHAT_OPTS"
+    - cd "$HOME/build/ezplatform"; docker-compose exec --user www-data app sh -c "./bin/behat $BEHAT_OPTS"
 
-# reduce depth (history) of git checkout
+#A reduce depth (history) of git checkout
 git:
   depth: 30
