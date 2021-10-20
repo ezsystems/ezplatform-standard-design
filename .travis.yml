@@ -13,7 +13,7 @@ matrix:
             - APP_DEBUG=1
             - COMPOSE_FILE="doc/docker/base-dev.yml:doc/docker/selenium.yml"
             - PROJECT_EDITION=oss
-            - PROJECT_VERSION=^3.3.x-dev
+            - PROJECT_VERSION=^4.0.x-dev
 
 # test only master and stable branches (+ Pull requests)
 branches:
