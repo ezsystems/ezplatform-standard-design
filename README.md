@@ -1,37 +1,17 @@
-# Ibexa Standard Design Bundle
+# Ibexa standard design bundle
 
-This Bundle defines standard Design and Theme to be handled by [ezplatform-design-engine](https://github.com/ezsystems/ezplatform-design-engine).
+This package is part of [Ibexa DXP](https://ibexa.co).
 
-Standard Design is the default Design used by the templates shipped
-with [Ibexa DXP](https://www.ibexa.co/products) and Ibexa Open Source.
+To use this package, [install Ibexa DXP](https://doc.ibexa.co/en/latest/install/).
 
-## Installation
-
-1. In your Ibexa project, require this package with Composer.
-
-    ```bash
-        composer require ezsystems/ezplatform-standard-design
-    ```
-
-2. Enable the Bundle in `config/bundles.php`:
-
-    ```php
-        return [
-            // ...
-            EzSystems\EzPlatformStandardDesignBundle\EzPlatformStandardDesignBundle::class => ['all' => true],
-            // ...
-        ];
-   ```
-
-3. Remember to clear the Symfony Cache (for `SYMFONY_ENV` your project uses).
-    ```bash
-        php bin/console cache:clear
-    ```
+This package contains the standard [Ibexa DXP](https://ibexa.co) design and theme to be handled by [ezplatform-design-engine](https://github.com/ezsystems/ezplatform-design-engine).
 
 ## COPYRIGHT
+
 Copyright (C) 1999-2021 Ibexa AS (formerly eZ Systems AS). All rights reserved.
 
 ## LICENSE
+
 This source code is available separately under the following licenses:
 
 A - Ibexa Business Use License Agreement (Ibexa BUL),
