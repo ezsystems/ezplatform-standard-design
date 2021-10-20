@@ -6,9 +6,9 @@ cache:
 
 matrix:
     include:
-        - php: 7.1
+        - php: 7.3
           env: 
-            - BEHAT_OPTS="--profile=core --suite=web --tags=~@broken --no-interaction" 
+            - BEHAT_OPTS="--mode=standard --profile=core --suite=web --tags=~@broken -c=behat_ibexa_oss.yaml"
             - APP_ENV=behat 
             - APP_DEBUG=1
             - COMPOSE_FILE="doc/docker/base-dev.yml:doc/docker/selenium.yml"
@@ -31,7 +31,7 @@ install:
     - ./vendor/bin/prepare_project_edition.sh ${PROJECT_EDITION} ${PROJECT_VERSION} ${COMPOSE_FILE}
 
 script:
-    - cd "$HOME/build/project"; docker-compose exec --user www-data app sh -c "vendor/bin/behat $BEHAT_OPTS"
+    - cd "$HOME/build/project"; docker-compose exec --user www-data app sh -c "vendor/bin/ezbehat $BEHAT_OPTS"
 
 # reduce depth (history) of git checkout
 git:
