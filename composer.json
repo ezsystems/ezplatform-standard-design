@@ -5,7 +5,7 @@
     "license": "GPL-2.0-only",
     "require": {
         "symfony/http-kernel": "^3.4",
-        "ezsystems/ezplatform-design-engine": "^2.0@dev",
+        "ezsystems/ezplatform-design-engine": "^2.0",
         "ezsystems/ezpublish-kernel": "^7.0"
     },
     "require-dev": {
@@ -32,7 +32,7 @@
     "extra": {
         "_ezplatform_branch_for_behat_tests": "2.5",
         "branch-alias": {
-            "dev-tmp_ci_branch": "0.2.x-dev",
+            "dev-tmp_ci_branch": "0.2",
             "dev-master": "0.2.x-dev"
         }
     }
