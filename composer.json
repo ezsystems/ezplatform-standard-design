@@ -6,7 +6,8 @@
     "require": {
         "symfony/http-kernel": "^5.0",
         "ezsystems/ezplatform-design-engine": "~3.0.0@dev",
-        "ezsystems/ezplatform-kernel": "^1.0@dev"
+        "ezsystems/ezplatform-kernel": "^1.0@dev",
+        "php": "^7.3 || ^8.0"
     },
     "require-dev": {
         "ezsystems/doctrine-dbal-schema": "^1.0@dev",
