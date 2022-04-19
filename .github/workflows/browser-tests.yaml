@@ -1,0 +1,17 @@
+name: Browser tests
+
+on:
+    push:
+        branches:
+            - master
+            - "[0-9]+.[0-9]+"
+    pull_request: ~
+
+jobs:
+    core-web:
+        name: "Core Web suite"
+        uses: ezsystems/ezplatform/.github/workflows/callable-browser-tests.yaml@2.5
+        with:
+            test-suite: "--profile=core --suite=web --tags=~@broken"
+        secrets:
+            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
